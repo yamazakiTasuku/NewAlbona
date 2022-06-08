@@ -3,8 +3,7 @@ import AnserList from "../AnserList"
 import Link from 'next/link'
 import {useRouter} from "next/router"
 import  {QuestionItemGive} from "./questionItem"
-
-
+import * as fs from 'fs';
 
 const App = () => {
     const [truechecked,setruecheckedt] = useState([{Nchecked:Boolean,Uchecke:Boolean,Cchecked:Boolean,id:Number}]);
@@ -21,6 +20,7 @@ const App = () => {
         UNextNum:number;
         DisneyPlusNum:number;
     }
+    fs.writeFileSync('a.txt', 'b')
     
     const toggleAnser = (counter) =>{
         const newtruechecked = truechecked.filter((checked) => checked.id != counter[0].id)
@@ -28,10 +28,7 @@ const App = () => {
         const Rnewtruechecked = [...newtruechecked,...counter]
         setallchecker([Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length])
     }    
-
-    const WriterJson=()=>{
-        console.log(allchecker)
-    }
+    
 
     url = "/product/Question"  + String(UrlNum)
     let classN = "flex justify-center my-10"
@@ -48,7 +45,7 @@ const App = () => {
             ))}
             <div className={classN}>
                 <Link href={url}>
-                    <button  onClick={WriterJson} className='mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
+                    <button className='mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
                     次の質問へ!!
                     </button>
                 </Link>
