@@ -10,7 +10,7 @@ const App  = () => {
     const [nextUrl,setnextUrl] = useState(String)
 
     const router = useRouter();
-    let {id} = router.query;
+    const {id} = router.query;
     const urlStr = `${id}`
     const UrlNum = Number(urlStr.slice(-1)) + 1
     const anserLists = QuestionItemGive(Number(urlStr.slice(-1)))
@@ -20,27 +20,34 @@ const App  = () => {
         const newtruechecked = truechecked.filter((checked) => checked.id != counter[0].id)
         setruecheckedt([...newtruechecked,...counter]);
         const Rnewtruechecked = [...newtruechecked,...counter]
-
         const treuchecker =[Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length]
         setallchecker([Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length])
-        //console.log(treuchecker)
+
         if(Rnewtruechecked.length === 7){
-            //console.log(allchecker)
-            console.log(Rnewtruechecked)
+            console.log(Rnewtruechecked.length)
+            console.log("urlnum" +  UrlNum)
             if(UrlNum == 2){
+                console.log("第一段階")
                 setnextUrl(url +  String(treuchecker[0]) + String(treuchecker[1]) + String(treuchecker[2]) + String(UrlNum))
-            }else if(UrlNum > 2){
-                const Url1Num = Number(urlStr.slice(-1))
-                const Url2Num = Number(urlStr.slice(-2))
-                const Url3Num = Number(urlStr.slice(-3))
+            }else if(4 > UrlNum && UrlNum> 2){
+                console.log("第二段階")
                 setnextUrl(urlStr +  String(treuchecker[0]) + String(treuchecker[1]) + String(treuchecker[2]) + String(UrlNum))
+            }else if(UrlNum == 4){
+                console.log("第三段階")
+                console.log(11111111)
+                const NetNum = Number(urlStr.slice(-8,-8)) + Number(urlStr.slice(-4,-4)) + treuchecker[0]
+                const UexNum = Number(urlStr.slice(-7,-7)) + Number(urlStr.slice(-3,-3)) + treuchecker[1]
+                const DsnNum = Number(urlStr.slice(-6,-6)) + Number(urlStr.slice(-2,-2)) + treuchecker[2]
+                if(NetNum > UexNum || NetNum>DsnNum){
+                    setnextUrl("lastPages/Netflix")
+                }else if(UexNum > NetNum || UexNum > DsnNum){
+                    setnextUrl("lastPages/U-next")
+                }else if(DsnNum > NetNum || DsnNum > UexNum ){
+                    setnextUrl("lastPages/DisneyPlus")
+                }
             }
         }
     }    
-
-    const NextPage=()=>{
-        //console.log(url)
-    }
 
     const classN = "flex justify-center my-10"
     return(
@@ -56,7 +63,7 @@ const App  = () => {
             ))}
             <div className={classN}>
                 <Link href={nextUrl} >
-                    <button onClick={()=>NextPage()} className='mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
+                    <button className='mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
                     次の質問へ!!
                     </button>
                 </Link>
