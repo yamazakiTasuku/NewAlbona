@@ -8,6 +8,7 @@ import  {QuestionItemGive} from "./questionItem"
 
 const App = () => {
     const [truechecked,setruecheckedt] = useState([{Nchecked:Boolean,Uchecke:Boolean,Cchecked:Boolean,id:Number}]);
+    const [allchecker,setallchecker] = useState([])
     let UrlNum = 0
     let url,urlStr:string
     const router = useRouter();
@@ -22,10 +23,16 @@ const App = () => {
     }
     
     const toggleAnser = (counter) =>{
-        console.log(counter)
-        setruecheckedt([...truechecked,...counter]);
-        //console.log(truechecked)
+        const newtruechecked = truechecked.filter((checked) => checked.id != counter[0].id)
+        setruecheckedt([...newtruechecked,...counter]);
+        const Rnewtruechecked = [...newtruechecked,...counter]
+        setallchecker([Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length])
     }    
+
+    const WriterJson=()=>{
+        console.log(allchecker)
+    }
+
     url = "/product/Question"  + String(UrlNum)
     let classN = "flex justify-center my-10"
     return(
@@ -41,7 +48,7 @@ const App = () => {
             ))}
             <div className={classN}>
                 <Link href={url}>
-                    <button  className='mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
+                    <button  onClick={WriterJson} className='mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
                     次の質問へ!!
                     </button>
                 </Link>
