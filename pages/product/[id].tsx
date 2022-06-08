@@ -5,7 +5,7 @@ import {useRouter} from "next/router"
 import  {QuestionItemGive} from "./questionItem"
 
 const App = () => {
-    const [truechecked,setruecheckedt] = useState();
+    const [truechecked,setruecheckedt] = useState([]);
     let UrlNum = 0
     let url,urlStr:string
     const router = useRouter();
@@ -29,10 +29,10 @@ const App = () => {
     //回答の種類を定義
     
     const toggleAnser = (counter) =>{
-        setruecheckedt(counter)
+        //console.log(counter[0].Cchecked)
+        setruecheckedt({...truechecked,...counter[0]})
         console.log(truechecked)
-    }
-    
+    }    
     url = "/product/Question"  + String(UrlNum)
     let classN = "flex justify-center my-10"
     return(

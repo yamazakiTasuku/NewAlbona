@@ -14,12 +14,18 @@ const AnserList = ({anserList,toggleAnser}) => {
     DSP:0,
     Cchecked:true
   })
+  const [valuesName,setvaluesName] = useState({
+    Nchecked:true,
+    Uchecked:true,
+    Cchecked:true
+  })
   
   const handleSubmit = (e,Sabusuc:string,Sabu:string) =>{
     e.preventDefault();
-    if(values[Sabu]===true){
-      const newlist = [{...values,Nchecked:true,Uchecked:true,Cchecked:true,[Sabu]:false}]
+    if(valuesName[Sabu]===true){
+      const newlist = [{...valuesName,Nchecked:true,Uchecked:true,Cchecked:true,[Sabu]:false}]
       toggleAnser(newlist)
+      //console.log(newlist)
       if(newlist[0][Sabu]===false){
         if(Sabu==="Nchecked"){
           NsetIspublished(cssNewName);
@@ -36,7 +42,7 @@ const AnserList = ({anserList,toggleAnser}) => {
         }
       }
     }
-    setValues({...values,[Sabusuc]: values[Sabusuc] + 1});
+    //setValues({...values,[Sabusuc]: values[Sabusuc] + 1});
     return values
   }
 
