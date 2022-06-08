@@ -4,6 +4,7 @@ import Link from 'next/link'
 import {useRouter} from "next/router"
 import  {QuestionItemGive} from "./questionItem"
 
+
 const App = () => {
     const [truechecked,setruecheckedt] = useState([]);
     let UrlNum = 0
