@@ -11,6 +11,7 @@ const anserLists = [{
     Uchecked: true,
     Disney_plus:"c",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "d",
     Nchecked: true,
@@ -18,6 +19,7 @@ const anserLists = [{
     Uchecked: true,
     Disney_plus:"f",
     Cchecked: true,
+    id:2,
 },{
     Netflix: "g",
     Nchecked: true,
@@ -25,6 +27,7 @@ const anserLists = [{
     Uchecked: true,
     Disney_plus:"i",
     Cchecked: true,
+    id:3,
 },{
     Netflix: "j",
     Nchecked: true,
@@ -32,6 +35,7 @@ const anserLists = [{
     Uchecked: true,
     Disney_plus:"l",
     Cchecked: true,
+    id:4,
 },{
     Netflix: "m",
     Nchecked: true,
@@ -39,6 +43,7 @@ const anserLists = [{
     Uchecked: true,
     Disney_plus:"o",
     Cchecked: true,
+    id:5,
 },{
     Netflix: "p",
     Nchecked: true,
@@ -46,6 +51,7 @@ const anserLists = [{
     Uchecked: true,
     Disney_plus:"r",
     Cchecked: true,
+    id:6,
 }]
 
 const anserLists2 = [{
@@ -55,6 +61,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"C",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "D",
     Nchecked: true,
@@ -62,6 +69,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"F",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "G",
     Nchecked: true,
@@ -69,6 +77,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"I",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "J",
     Nchecked: true,
@@ -76,6 +85,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"L",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "M",
     Nchecked: true,
@@ -83,6 +93,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"O",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "P",
     Nchecked: true,
@@ -90,6 +101,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"R",
     Cchecked: true,
+    id:1,
 }]
 
 const anserLists3 = [{
@@ -99,6 +111,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"c",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "d",
     Nchecked: true,
@@ -106,6 +119,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"f",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "g",
     Nchecked: true,
@@ -113,6 +127,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"i",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "j",
     Nchecked: true,
@@ -120,6 +135,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"l",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "m",
     Nchecked: true,
@@ -127,6 +143,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"o",
     Cchecked: true,
+    id:1,
 },{
     Netflix: "p",
     Nchecked: true,
@@ -134,6 +151,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"r",
     Cchecked: true,
+    id:1,
 }]
 
 export const QuestionItemGive = (urlNum) =>{

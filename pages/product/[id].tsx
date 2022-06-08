@@ -5,8 +5,9 @@ import {useRouter} from "next/router"
 import  {QuestionItemGive} from "./questionItem"
 
 
+
 const App = () => {
-    const [truechecked,setruecheckedt] = useState([]);
+    const [truechecked,setruecheckedt] = useState([{Nchecked:Boolean,Uchecke:Boolean,Cchecked:Boolean,id:Number}]);
     let UrlNum = 0
     let url,urlStr:string
     const router = useRouter();
@@ -19,20 +20,11 @@ const App = () => {
         UNextNum:number;
         DisneyPlusNum:number;
     }
-
-    //答えの種類を足していく
-    const anserConter:anserConterType = {
-        NetflixNum : 0,
-        UNextNum : 0,
-        DisneyPlusNum:0
-    };
-
-    //回答の種類を定義
     
     const toggleAnser = (counter) =>{
-        //console.log(counter[0].Cchecked)
-        setruecheckedt({...truechecked,...counter[0]})
-        console.log(truechecked)
+        console.log(counter)
+        setruecheckedt([...truechecked,...counter]);
+        //console.log(truechecked)
     }    
     url = "/product/Question"  + String(UrlNum)
     let classN = "flex justify-center my-10"
@@ -43,8 +35,9 @@ const App = () => {
                     以下の中から好きな作品を選んでください
                 </h1>
             </div>
-            {anserLists.map((anserList)=>(  
-                <AnserList anserList={anserList} toggleAnser={toggleAnser} key={anserList.Netflix}/>
+            {
+            anserLists.map((anserList)=>(  
+                <AnserList anserList={anserList} toggleAnser={toggleAnser} key={anserList.Netflix} Id={anserList.id}/>
             ))}
             <div className={classN}>
                 <Link href={url}>

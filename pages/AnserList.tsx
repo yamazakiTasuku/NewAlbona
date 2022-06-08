@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const AnserList = ({anserList,toggleAnser}) => { 
+const AnserList = ({anserList,toggleAnser,Id}) => { 
   const FcssName = "mx-10 my-5 px-20 py-10 shadow-lg bg-blue-400 text-lg text-white font-semibold rounded  hover:bg-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition"
   const cssNewName = "mx-10 my-5 px-20 py-10 shadow-lg bg-blue-400 text-lg text-white font-semibold rounded  hover:bg-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition bg-blue-700"
   const [NisPublishes,NsetIspublished] = useState(FcssName)
@@ -17,7 +17,8 @@ const AnserList = ({anserList,toggleAnser}) => {
   const [valuesName,setvaluesName] = useState({
     Nchecked:true,
     Uchecked:true,
-    Cchecked:true
+    Cchecked:true,
+    id:Id,
   })
   
   const handleSubmit = (e,Sabusuc:string,Sabu:string) =>{
