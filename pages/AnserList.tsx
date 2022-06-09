@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
 
 const AnserList = ({anserList,toggleAnser,Id}) => { 
-  const FcssName = "bg-cover  border-black border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg  text-lg text-white font-semibold rounded  hover:bg-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition"
-  const cssNewName = "bg-cover border-red-600 border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg text-lg text-white font-semibold rounded  hover:shadow-sm"
-
-  console.log(FcssName)
+  const FcssName = `bg-cover bg-[url(' ${anserList.Netflixurl} ')] border-black border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg  text-lg text-white font-semibold rounded  hover:bg-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition`
+  const cssNewName = `bg-cover bg-[url(' ${anserList.Netflixurl} ')] border-red-600 border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg text-lg text-white font-semibold rounded  hover:shadow-sm`
   const [NisPublishes,NsetIspublished] = useState(FcssName)
   const [UisPublishes,UsetIspublished] = useState(FcssName)
   const [DisPublishes,DsetIspublished] = useState(FcssName)
@@ -23,6 +21,7 @@ const AnserList = ({anserList,toggleAnser,Id}) => {
     Cchecked:true,
     id:Id,
   })
+  console.log(valuesName)
   const handleSubmit = (e,Sabu:string) =>{
     e.preventDefault();
     if(valuesName[Sabu]===true){

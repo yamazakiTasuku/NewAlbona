@@ -70,7 +70,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:1,
+    id:7,
 },{
     Netflix: "",
     Nchecked: true,
@@ -80,7 +80,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:2,
+    id:8,
 },{
     Netflix: "",
     Nchecked: true,
@@ -90,7 +90,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:3,
+    id:9,
 },{
     Netflix: "",
     Nchecked: true,
@@ -100,7 +100,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:4,
+    id:10,
 },{
     Netflix: "",
     Nchecked: true,
@@ -110,7 +110,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:5,
+    id:11,
 },{
     Netflix: "",
     Nchecked: true,
@@ -120,7 +120,7 @@ const anserLists2 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:6,
+    id:12,
 }]
 
 const anserLists3 = [{
@@ -132,7 +132,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:1,
+    id:13,
 },{
     Netflix: "",
     Nchecked: true,
@@ -142,7 +142,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:2,
+    id:14,
 },{
     Netflix: "",
     Nchecked: true,
@@ -152,7 +152,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:3,
+    id:15,
 },{
     Netflix: "",
     Nchecked: true,
@@ -162,7 +162,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:4,
+    id:16,
 },{
     Netflix: "",
     Nchecked: true,
@@ -172,7 +172,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:5,
+    id:17,
 },{
     Netflix: "",
     Nchecked: true,
@@ -182,7 +182,7 @@ const anserLists3 = [{
     Uchecked: true,
     Disney_plus:"",
     Cchecked: true,
-    id:6,
+    id:18,
 }]
 
 export const QuestionItemGive = (urlNum) =>{
