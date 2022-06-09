@@ -8,7 +8,7 @@ const App  = () => {
     const [truechecked,setruecheckedt] = useState([{Nchecked:Boolean,Uchecke:Boolean,Cchecked:Boolean,id:Number}]);
     const [allchecker,setallchecker] = useState([])
     const [nextUrl,setnextUrl] = useState(String)
-    const cssName = "shadow-lg mb-8 mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500"
+    const cssName = "shadow-lg mb-8 mt-7 text-3xl px-20 py-10 bg-blue-100 text-white font-semibold rounded hover:bg-blue-500"
     const NextcssName = "shadow-lg mb-8 mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500"
     const [CssName,setcssName] = useState(cssName)
     const router = useRouter();
@@ -20,7 +20,6 @@ const App  = () => {
     
 
     const toggleAnser = (counter) =>{
-        console.log(counter)
         const newtruechecked = truechecked.filter((checked) => checked.id != counter[0].id)
         setruecheckedt([...newtruechecked,...counter]);
         const Rnewtruechecked = [...newtruechecked,...counter]
@@ -30,7 +29,7 @@ const App  = () => {
         $inputelement.setAttribute("disabled",'');
         if(Rnewtruechecked.length % 6===1){
             $inputelement.removeAttribute('disabled')
-            setcssName(cssName)
+            setcssName(NextcssName)
             if(UrlNum == 2){
                 setnextUrl(url +  String(treuchecker[0]) + String(treuchecker[1]) + String(treuchecker[2]) + String(UrlNum))
             }else if(4 > UrlNum && UrlNum> 2){
@@ -48,11 +47,12 @@ const App  = () => {
                 }
             }
         }
-    }    
+    }  
+     
 
     return(
         <div>
-            <div className="pt-5 mt-3 bg-green-300 max-w-xl m-auto items-center shadow-lg">
+            <div className="rounded-2xl pt-5 mt-3 bg-green-300 max-w-xl m-auto items-center shadow-lg">
                 <div className="">
                     <h1 className="flex justify-center "> 
                         アニメ診断<br/>

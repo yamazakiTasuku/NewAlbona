@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <div className='text-center'>
         <Link href="/product/Question1">
-          <button  className='mt-5 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
+          <button  className='animate-bounce mt-64 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
             Start! <br/>
             今すぐ無料診断
           </button>
