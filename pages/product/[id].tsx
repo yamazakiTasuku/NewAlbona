@@ -26,14 +26,11 @@ const App  = () => {
         const Rnewtruechecked = [...newtruechecked,...counter]
         const treuchecker =[Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length]
         setallchecker([Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length])
-        const $inputelement = document.getElementById('input1');
-        $inputelement.setAttribute('disabled','')
-
-        if(Rnewtruechecked.length === 7){
-            console.log($inputelement)
+        const $inputelement = document.getElementById('input1')
+        $inputelement.setAttribute("disabled",'');
+        if(Rnewtruechecked.length % 6===1){
             $inputelement.removeAttribute('disabled')
             setcssName(cssName)
-            
             if(UrlNum == 2){
                 setnextUrl(url +  String(treuchecker[0]) + String(treuchecker[1]) + String(treuchecker[2]) + String(UrlNum))
             }else if(4 > UrlNum && UrlNum> 2){
