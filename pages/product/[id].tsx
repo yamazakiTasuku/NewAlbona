@@ -17,18 +17,23 @@ const App  = () => {
     const UrlNum = Number(urlStr.slice(-1)) + 1
     const anserLists = QuestionItemGive(Number(urlStr.slice(-1)))
     const url = "/product/Question"  
+    
 
     const toggleAnser = (counter) =>{
+        console.log(counter)
         const newtruechecked = truechecked.filter((checked) => checked.id != counter[0].id)
         setruecheckedt([...newtruechecked,...counter]);
         const Rnewtruechecked = [...newtruechecked,...counter]
         const treuchecker =[Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length]
         setallchecker([Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length])
+        const $inputelement = document.getElementById('input1');
+        $inputelement.setAttribute('disabled','')
 
         if(Rnewtruechecked.length === 7){
+            console.log($inputelement)
+            $inputelement.removeAttribute('disabled')
             setcssName(cssName)
-            const inputelement = document.getElementById('input1');
-            //inputelement.disabled 
+            
             if(UrlNum == 2){
                 setnextUrl(url +  String(treuchecker[0]) + String(treuchecker[1]) + String(treuchecker[2]) + String(UrlNum))
             }else if(4 > UrlNum && UrlNum> 2){
@@ -58,15 +63,13 @@ const App  = () => {
                     <h2 className="flex justify-center">
                         以下から好きなアニメを選択してください
                     </h2>
-                    
                 </div>
                 {anserLists.map((anserList)=>(  
                     <AnserList anserList={anserList} toggleAnser={toggleAnser} key={anserList.id} Id={anserList.id}/>
                 ))}
                 <div className="flex justify-center my-10 bg-green-300 shadow-lg">
                     <Link href={nextUrl} >
-                        <input type = "submit"className= {CssName} value = "次の質問へ!!" id = "input1"/>
-                        
+                        <input type = "submit"className= {CssName} value = "次の質問へ!!" id = "input1" />
                     </Link>
                 </div>
             </div>

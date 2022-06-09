@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 
 const AnserList = ({anserList,toggleAnser,Id}) => { 
-  const FcssName = `bg-cover bg-[url(' ${anserList.Netflixurl} ')] border-black border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg  text-lg text-white font-semibold rounded  hover:bg-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition`
-  const cssNewName = `bg-cover bg-[url(' ${anserList.Netflixurl} ')] border-red-600 border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg text-lg text-white font-semibold rounded  hover:shadow-sm`
+  const FcssName = `bg-cover  border-black border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg  text-lg text-white font-semibold rounded  hover:bg-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition`
+  const cssNewName = `bg-cover  border-red-600 border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg text-lg text-white font-semibold rounded  hover:shadow-sm`
+  const [NbackImg,setNbackImg] = useState(anserList.Netflixurl)
+  const [UbackImg,setUbackImg] = useState(anserList.Netflixurl)
+  const [DbackImg,setDbackImg] = useState(anserList.Netflixurl)
   const [NisPublishes,NsetIspublished] = useState(FcssName)
   const [UisPublishes,UsetIspublished] = useState(FcssName)
   const [DisPublishes,DsetIspublished] = useState(FcssName)
@@ -21,7 +24,6 @@ const AnserList = ({anserList,toggleAnser,Id}) => {
     Cchecked:true,
     id:Id,
   })
-  console.log(valuesName)
   const handleSubmit = (e,Sabu:string) =>{
     e.preventDefault();
     if(valuesName[Sabu]===true){
@@ -29,14 +31,23 @@ const AnserList = ({anserList,toggleAnser,Id}) => {
       toggleAnser(newlist)
       if(newlist[0][Sabu]===false){
         if(Sabu==="Nchecked"){
+          setNbackImg(anserList.AftNetflixurl);
+          setUbackImg(anserList.Netflixurl);
+          setDbackImg(anserList.Netflixurl);
           NsetIspublished(cssNewName);
           UsetIspublished(FcssName);
           DsetIspublished(FcssName);
         }else if(Sabu==="Uchecked"){
+          setUbackImg(anserList.AftNetflixurl);
+          setNbackImg(anserList.Netflixurl);
+          setDbackImg(anserList.Netflixurl);
           UsetIspublished(cssNewName);
           NsetIspublished(FcssName);
           DsetIspublished(FcssName);
         }else if(Sabu==="Cchecked"){
+          setDbackImg(anserList.AftNetflixurl);
+          setUbackImg(anserList.Netflixurl);
+          setNbackImg(anserList.Netflixurl);
           DsetIspublished(cssNewName);
           UsetIspublished(FcssName);
           NsetIspublished(FcssName);
@@ -50,9 +61,9 @@ const AnserList = ({anserList,toggleAnser,Id}) => {
   return (
     <div>
       <div className='rounded-2xl bg-pink-200 my-5 mx-5 flex justify-center shadow-lg'> 
-        <button className={NisPublishes} style={{backgroundImage: `url(${anserList.Netflixurl})`}} onClick={(e) => handleSubmit(e,"Nchecked")}>{anserList.Netflix}</button>
-        <button className={UisPublishes} style={{backgroundImage: `url(${anserList.Netflixurl})`}} onClick={(e) => handleSubmit(e,"Uchecked")}>{anserList.UNext}</button>
-        <button className={DisPublishes} style={{backgroundImage: `url(${anserList.Netflixurl})`}} onClick={(e) => handleSubmit(e,"Cchecked")}>{anserList.Disney_plus}</button>
+        <button className={NisPublishes} style={{backgroundImage: `url(${NbackImg}`}} onClick={(e) => handleSubmit(e,"Nchecked")}>{anserList.Netflix}</button>
+        <button className={UisPublishes} style={{backgroundImage: `url(${UbackImg})`}} onClick={(e) => handleSubmit(e,"Uchecked")}>{anserList.UNext}</button>
+        <button className={DisPublishes} style={{backgroundImage: `url(${DbackImg})`}} onClick={(e) => handleSubmit(e,"Cchecked")}>{anserList.Disney_plus}</button>
       </div>
     </div>
   )
