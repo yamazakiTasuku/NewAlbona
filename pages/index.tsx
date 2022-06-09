@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -13,7 +12,7 @@ export default function Home() {
       </Head>
       <div className='text-center'>
         <Link href="/product/Question1">
-          <button  className='mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
+          <button  className='mt-5 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
             Start! <br/>
             今すぐ無料診断
           </button>

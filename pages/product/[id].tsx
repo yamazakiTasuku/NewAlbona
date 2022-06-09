@@ -24,17 +24,11 @@ const App  = () => {
         setallchecker([Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length])
 
         if(Rnewtruechecked.length === 7){
-            console.log(Rnewtruechecked.length)
-            console.log("urlnum" +  UrlNum)
             if(UrlNum == 2){
-                console.log("第一段階")
                 setnextUrl(url +  String(treuchecker[0]) + String(treuchecker[1]) + String(treuchecker[2]) + String(UrlNum))
             }else if(4 > UrlNum && UrlNum> 2){
-                console.log("第二段階")
                 setnextUrl(urlStr +  String(treuchecker[0]) + String(treuchecker[1]) + String(treuchecker[2]) + String(UrlNum))
             }else if(UrlNum == 4){
-                console.log("第三段階")
-                console.log(11111111)
                 const NetNum = Number(urlStr.slice(-8,-8)) + Number(urlStr.slice(-4,-4)) + treuchecker[0]
                 const UexNum = Number(urlStr.slice(-7,-7)) + Number(urlStr.slice(-3,-3)) + treuchecker[1]
                 const DsnNum = Number(urlStr.slice(-6,-6)) + Number(urlStr.slice(-2,-2)) + treuchecker[2]
@@ -49,24 +43,29 @@ const App  = () => {
         }
     }    
 
-    const classN = "flex justify-center my-10"
+    const classN = "flex justify-center my-10 bg-green-300 shadow-lg"
     return(
         <div>
-            <div className="flex justify-center">
-                <h1>
-                    以下の中から好きな作品を選んでください
-                </h1>
-            </div>
-            {
-            anserLists.map((anserList)=>(  
-                <AnserList anserList={anserList} toggleAnser={toggleAnser} key={anserList.Netflix} Id={anserList.id}/>
-            ))}
-            <div className={classN}>
-                <Link href={nextUrl} >
-                    <button className='mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
-                    次の質問へ!!
-                    </button>
-                </Link>
+            <div className="pt-5 mt-3 bg-green-300 max-w-xl m-auto items-center shadow-lg">
+                <div className="">
+                    <h1 className="flex justify-center "> 
+                        アニメ診断<br/>
+                    </h1>
+                    <h2 className="flex justify-center">
+                        以下から好きなアニメを選択してください
+                    </h2>
+                    
+                </div>
+                {anserLists.map((anserList)=>(  
+                    <AnserList anserList={anserList} toggleAnser={toggleAnser} key={anserList.id} Id={anserList.id}/>
+                ))}
+                <div className={classN}>
+                    <Link href={nextUrl} >
+                        <button className='mb-8 mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
+                        次の質問へ!!
+                        </button>
+                    </Link>
+                </div>
             </div>
         </div>
     )

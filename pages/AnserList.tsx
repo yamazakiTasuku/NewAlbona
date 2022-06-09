@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 
 const AnserList = ({anserList,toggleAnser,Id}) => { 
-  const FcssName = "mx-10 my-5 px-20 py-10 shadow-lg bg-blue-400 text-lg text-white font-semibold rounded  hover:bg-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition"
-  const cssNewName = "mx-10 my-5 px-20 py-10 shadow-lg bg-blue-400 text-lg text-white font-semibold rounded  hover:bg-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition bg-blue-700"
+  const FcssName = "bg-cover  border-black border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg  text-lg text-white font-semibold rounded  hover:bg-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition"
+  const cssNewName = "bg-cover border-red-600 border-4 rounded-2xl mx-1 my-4 px-20 py-10 shadow-lg text-lg text-white font-semibold rounded  hover:shadow-sm"
+
+  console.log(FcssName)
   const [NisPublishes,NsetIspublished] = useState(FcssName)
   const [UisPublishes,UsetIspublished] = useState(FcssName)
   const [DisPublishes,DsetIspublished] = useState(FcssName)
@@ -14,19 +16,18 @@ const AnserList = ({anserList,toggleAnser,Id}) => {
     DSP:0,
     Cchecked:true
   })
+  
   const [valuesName,setvaluesName] = useState({
     Nchecked:true,
     Uchecked:true,
     Cchecked:true,
     id:Id,
   })
-  
-  const handleSubmit = (e,Sabusuc:string,Sabu:string) =>{
+  const handleSubmit = (e,Sabu:string) =>{
     e.preventDefault();
     if(valuesName[Sabu]===true){
       const newlist = [{...valuesName,Nchecked:true,Uchecked:true,Cchecked:true,[Sabu]:false}]
       toggleAnser(newlist)
-      //console.log(newlist)
       if(newlist[0][Sabu]===false){
         if(Sabu==="Nchecked"){
           NsetIspublished(cssNewName);
@@ -43,20 +44,17 @@ const AnserList = ({anserList,toggleAnser,Id}) => {
         }
       }
     }
-    //setValues({...values,[Sabusuc]: values[Sabusuc] + 1});
     return values
   }
 
   
   return (
     <div>
-
-      <div className='flex justify-center'> 
-        <button className={NisPublishes} onClick={(e) => handleSubmit(e,"NFT","Nchecked")}>{anserList.Netflix}</button>
-        <button className={UisPublishes} onClick={(e) => handleSubmit(e,"UNX","Uchecked")}>{anserList.UNext}</button>
-        <button className={DisPublishes} onClick={(e) => handleSubmit(e,"DSP","Cchecked")}>{anserList.Disney_plus}</button>
+      <div className='rounded-2xl bg-pink-200 my-5 mx-5 flex justify-center shadow-lg'> 
+        <button className={NisPublishes} onClick={(e) => handleSubmit(e,"Nchecked")}>{anserList.Netflix}</button>
+        <button className={UisPublishes} onClick={(e) => handleSubmit(e,"Uchecked")}>{anserList.UNext}</button>
+        <button className={DisPublishes} onClick={(e) => handleSubmit(e,"Cchecked")}>{anserList.Disney_plus}</button>
       </div>
-
     </div>
   )
 }
