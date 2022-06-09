@@ -8,7 +8,9 @@ const App  = () => {
     const [truechecked,setruecheckedt] = useState([{Nchecked:Boolean,Uchecke:Boolean,Cchecked:Boolean,id:Number}]);
     const [allchecker,setallchecker] = useState([])
     const [nextUrl,setnextUrl] = useState(String)
-
+    const cssName = "shadow-lg mb-8 mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500"
+    const NextcssName = "shadow-lg mb-8 mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500"
+    const [CssName,setcssName] = useState(cssName)
     const router = useRouter();
     const {id} = router.query;
     const urlStr = `${id}`
@@ -24,6 +26,9 @@ const App  = () => {
         setallchecker([Rnewtruechecked.filter((checked)=> checked.Nchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Uchecked===false).length,Rnewtruechecked.filter((checked)=> checked.Cchecked===false).length])
 
         if(Rnewtruechecked.length === 7){
+            setcssName(cssName)
+            const inputelement = document.getElementById('input1');
+            //inputelement.disabled 
             if(UrlNum == 2){
                 setnextUrl(url +  String(treuchecker[0]) + String(treuchecker[1]) + String(treuchecker[2]) + String(UrlNum))
             }else if(4 > UrlNum && UrlNum> 2){
@@ -43,7 +48,6 @@ const App  = () => {
         }
     }    
 
-    const classN = "flex justify-center my-10 bg-green-300 shadow-lg"
     return(
         <div>
             <div className="pt-5 mt-3 bg-green-300 max-w-xl m-auto items-center shadow-lg">
@@ -59,11 +63,10 @@ const App  = () => {
                 {anserLists.map((anserList)=>(  
                     <AnserList anserList={anserList} toggleAnser={toggleAnser} key={anserList.id} Id={anserList.id}/>
                 ))}
-                <div className={classN}>
+                <div className="flex justify-center my-10 bg-green-300 shadow-lg">
                     <Link href={nextUrl} >
-                        <button className='mb-8 mt-7 text-3xl px-20 py-10 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500'>
-                        次の質問へ!!
-                        </button>
+                        <input type = "submit"className= {CssName} value = "次の質問へ!!" id = "input1"/>
+                        
                     </Link>
                 </div>
             </div>

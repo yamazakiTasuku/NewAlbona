@@ -50,9 +50,9 @@ const AnserList = ({anserList,toggleAnser,Id}) => {
   return (
     <div>
       <div className='rounded-2xl bg-pink-200 my-5 mx-5 flex justify-center shadow-lg'> 
-        <button className={NisPublishes} onClick={(e) => handleSubmit(e,"Nchecked")}>{anserList.Netflix}</button>
-        <button className={UisPublishes} onClick={(e) => handleSubmit(e,"Uchecked")}>{anserList.UNext}</button>
-        <button className={DisPublishes} onClick={(e) => handleSubmit(e,"Cchecked")}>{anserList.Disney_plus}</button>
+        <button className={NisPublishes} style={{backgroundImage: `url(${anserList.Netflixurl})`}} onClick={(e) => handleSubmit(e,"Nchecked")}>{anserList.Netflix}</button>
+        <button className={UisPublishes} style={{backgroundImage: `url(${anserList.Netflixurl})`}} onClick={(e) => handleSubmit(e,"Uchecked")}>{anserList.UNext}</button>
+        <button className={DisPublishes} style={{backgroundImage: `url(${anserList.Netflixurl})`}} onClick={(e) => handleSubmit(e,"Cchecked")}>{anserList.Disney_plus}</button>
       </div>
     </div>
   )
